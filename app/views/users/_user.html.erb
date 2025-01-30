@@ -1,2 +1,26 @@
 <div id="<%= dom_id user %>">
+    <div>
+      Email: <%= user.email %>
+    </div>
+    <div>
+      Full name: <%= user.full_name %>
+    </div>
+    <div>
+      Age: <%= user.age %>
+    </div>
+    <div>
+      Nationality: <%= user.nationality %>
+    </div>
+    <div>
+      Country: <%= user.country %>
+    </div>
+    <div>
+      Gender: <%= user.gender %>
+    </div>
+    <div>
+      Interests: <%= user.interests.pluck(:name).join(", ") %>
+    </div>
+    <div>
+      Skills: <%= user.skills.pluck(:name).join(", ") %>
+    </div>
 </div>

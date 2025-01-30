@@ -8,7 +8,7 @@
   <% @skills.each do |skill| %>
     <%= render skill %>
     <p>
-      <%= link_to "Show this skill", skill %>
+      <%= link_to skill.name, skill %>
     </p>
   <% end %>
 </div>

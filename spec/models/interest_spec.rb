@@ -1,5 +1,7 @@
-require 'rails_helper'
+describe Interest, type: :model do
+  subject { build :interest }
 
-RSpec.describe Interest, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to have_many(:user_interests) }
+  it { is_expected.to have_many(:users).through(:user_interests) }
+  it { is_expected.to validate_uniqueness_of(:name) }
 end

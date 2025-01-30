@@ -2,8 +2,10 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+[ "skill 1", "skill 2", "skill 3" ].each do |skill|
+  Skill.create!(name: skill)
+end
+
+[ "interest 1", "interest 2", "interest 3" ].each do |interest|
+  Interest.create!(name: interest)
+end

@@ -1,5 +1,7 @@
-require 'rails_helper'
+describe Skill, type: :model do
+  subject { create(:skill) }
 
-RSpec.describe Skill, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to have_many(:user_skills) }
+  it { is_expected.to have_many(:users).through(:user_skills) }
+  it { is_expected.to validate_uniqueness_of(:name) }
 end

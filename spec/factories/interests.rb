@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :skill do
+  factory :interest do
     sequence(:name) { |n| "name-#{n}" }
   end
 end
