@@ -1,24 +1,49 @@
-# README
+# Требования
+- Ruby 3.x
+- bundler
+- Rails 8
+- sqlite 3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Запуск
+Установка необходимых гемов:
+```bash
+bundle install
+```
 
-Things you may want to cover:
+Развернуть бд:
+```bash
+bundle exec db:setup
+```
 
-* Ruby version
+Тесты:
+```bash
+bundle exec rspec
+```
 
-* System dependencies
+# Решение проблемы с опечаткой Skil
+## Вариант 1
+1. Создать миграцию на переименовывание таблицы и запустить её:
+```ruby
+  def up
+    rename_table :skils, :skills
+  end
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  def down
+    rename_table :skills, :skils
+  end
+```
+2. Исправить опечатки в коде
+## Вариант 2
+Подойдёт если делать миграцию нежелательно
+1. Задать имя таблицы в модели
+```ruby
+class Skil
+  self.table_name = "skils"
+end
+```
+2. Исправить опечатки в коде
+```ruby
+class Skill
+  self.table_name = "skils"
+end
+```
